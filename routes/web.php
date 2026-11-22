@@ -1,5 +1,7 @@
 <?php
 
+//import controller EmployeController
+use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\MahasiswaController;
@@ -26,3 +28,5 @@ Route::post('/kalkulator/segitiga', [KalkulatorController::class, 'hitungSegitig
 use App\Http\Controllers\DashboardController;
 Route::get('/dashboard', [DashboardController::class, 'home'])
     ->name('dashboard');
+//dibawah sendiri
+Route::get('/employe',[EmployeController::class, 'index']);
