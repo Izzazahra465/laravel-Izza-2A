@@ -27,6 +27,7 @@
             </td>
         </tr>
         @endforeach
+        <p><a href="/employe/create"><button>+ Tambah Pegawai</button></a></p>
     </table>
 </body>
 </html>
