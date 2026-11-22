@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
-abstract class Controller
+use App\Models\Employe;
+
+class EmployeController extends Controller
 {
-    //
+    public function index()
+    {
+        $data['judul']    = 'CRUD data Pegawai';
+        $data['employes'] = Employe::all();
+        return view('tampil_data', $data);
+    }
 }

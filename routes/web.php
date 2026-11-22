@@ -23,3 +23,6 @@ Route::get('/kalkulator/segitiga', [KalkulatorController::class, 'segitiga'])
     ->name('kalkulator.segitiga');
 Route::post('/kalkulator/segitiga', [KalkulatorController::class, 'hitungSegitiga'])
     ->name('kalkulator.segitiga.hitung');
+use App\Http\Controllers\DashboardController;
+Route::get('/dashboard', [DashboardController::class, 'home'])
+    ->name('dashboard');

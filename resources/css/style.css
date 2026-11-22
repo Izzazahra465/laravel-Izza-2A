@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: lightgray;
+    font: 16px Arial, sans-serif;
+}
+
+.container {
+    width: min(800px, calc(100% - 32px));
+    min-height: calc(100vh - 32px);
+    margin: 16px auto;
+    background: white;
+}
+
+.header {
+    min-height: 76px;
+    padding: 20px;
+}
+
+.header .judul {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.banner {
+    height: 200px;
+    border-top: 5px solid navy;
+    border-bottom: 5px solid skyblue;
+    background: url(https://picsum.photos/800/200) center / cover;
+}
+
+.isi {
+    display: flex;
+    min-height: 320px;
+    gap: 5px;
+    padding: 5px;
+}
+
+.sidebar {
+    flex: 0 0 160px;
+    padding: 10px;
+    border: 0.5px solid navy;
+    background: navy;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    border: 0.5px solid skyblue;
+}
+
+.nav {
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.nav li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    background: lightblue;
+    color: navy;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .banner {
+        height: 140px;
+    }
+
+    .isi {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex: none;
+        width: 100%;
+    }
+}
