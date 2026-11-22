@@ -27,7 +27,7 @@
             </td>
         </tr>
         @endforeach
-        <p><a href="/employe/create"><button>+ Tambah Pegawai</button></a></p>
+        <a href="/employe/edit/{{ $row->id }}"><button>Edit</button></a>
     </table>
 </body>
 </html>

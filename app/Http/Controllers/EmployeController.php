@@ -31,4 +31,21 @@ class EmployeController extends Controller
 
         return redirect('/employe');
     }
+        public function show(Employe $employe)
+    {
+        $data['judul']   = 'Edit data Pegawai';
+        $data['employe'] = $employe;
+        return view('edit_data', $data);
+    }
+
+    public function update(Request $request, Employe $employe)
+    {
+        $employe->nama   = $request->nama;
+        $employe->alamat = $request->alamat;
+        $employe->gender = $request->gender;
+        $employe->gaji   = $request->gaji;
+        $employe->save();
+
+        return redirect('/employe');
+    }
 }
