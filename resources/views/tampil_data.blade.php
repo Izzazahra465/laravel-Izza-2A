@@ -22,7 +22,7 @@
             <td>{{ $row->alamat }}</td>
             <td>{{ $row->gender }}</td>
             <td>{{ $row->gaji }}</td>
-            <td>
+            <td>php artisan make:controller EmployeController --resource
                 <button>Edit</button> | <button>Delete</button>
             </td>
         </tr>

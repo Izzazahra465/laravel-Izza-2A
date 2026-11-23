@@ -1,6 +1,7 @@
 <?php
 
 //import controller EmployeController
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KalkulatorController;
@@ -34,3 +35,4 @@ Route::get('/employe/create', [EmployeController::class, 'create']);
 Route::post('/employe/store', [EmployeController::class, 'store']);
 Route::get('/employe/edit/{employe}', [EmployeController::class, 'show']);
 Route::put('/employe/{employe}', [EmployeController::class, 'update']);
+Route::resource('admin', AdminController::class)->except('show');
