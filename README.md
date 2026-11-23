@@ -8,51 +8,81 @@
 </p>
 
 ## About Laravel
+Belajar Laravel - web-app
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Project latihan praktikum Framework Laravel (mengikuti Modul Praktikum Framework Laravel oleh Rudy Eko Prasetya, S.Kom). Project dikerjakan bertahap, dan setiap fitur dibangun di atas fitur sebelumnya, mulai dari routing dasar sampai CRUD dengan database MySQL.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Penyusun: Izza Zahra
+Repository: https://github.com/Izzazahra465/laravel-Izza-2A
+Kesinambungan Pengerjaan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Urutan di bawah menunjukkan bagaimana tiap tahap menjadi dasar tahap berikutnya.
 
-## Learning Laravel
+No	Tahap	Yang dipelajari	Berlanjut ke
+1	Route dan Controller	Membuat route, controller, dan parameter URL	Dasar semua tahap berikutnya
+2	Parsing data ke View	Mengirim data dari controller ke Blade dengan {{ }}	Kalkulator, daftar mahasiswa
+3	Kalkulator dan Mahasiswa	Form GET/POST, Request, @csrf, @foreach	Memahami alur form untuk CRUD
+4	Sistem Templating	@extends, @section, @yield, @include	Tampilan CRUD memakai layout yang sama
+5	CRUD Pegawai (Employe)	Eloquent, Model, Controller, view, koneksi MySQL	Pola yang diulang pada CRUD Admin
+6	CRUD Admin	Route::resource, resource controller, hash password	Latihan mandiri dari pola tahap 5
+7	Migration, Seeder, Factory	Skema tabel lewat kode dan data dummy dengan Faker	Sedang dikerjakan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Tahap berikutnya dalam modul: Autentifikasi (login, logout, middleware) dan Restful API.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Teknologi
+PHP dan framework Laravel
+MySQL (lewat XAMPP) dan Eloquent ORM
+Blade template engine
+Bootstrap 5 (CDN) pada halaman admin
+Composer dan Git
+Daftar Route
+URL	Method	Fungsi
+/	GET	Halaman utama
+/about	GET	Halaman about
+/web, /web/profil	GET	Latihan controller dan parameter URL
+/daftar/mahasiswa	GET	Daftar mahasiswa
+/kalkulator/segitiga	GET, POST	Hitung luas segitiga
+/dashboard	GET	Dashboard dengan sistem templating
+/employe	GET	Tampil data pegawai
+/employe/create, /employe/store	GET, POST	Tambah data pegawai
+/employe/edit/{employe}, /employe/{employe}	GET, PUT	Ubah data pegawai
+/employe/{employe}	DELETE	Hapus data pegawai
+/admin	resource	CRUD admin (index, create, store, edit, update, destroy)
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Daftar lengkap bisa dilihat dengan php artisan route:list.
 
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Struktur Utama
+app/
+  Http/Controllers/   EmployeController, AdminController, KalkulatorController,
+                      MahasiswaController, DashboardController, Web
+  Models/             Employe, Admin, User
+database/             migration dan seeder
+resources/views/      view Blade (tampil_data, tambah_data, edit_data, admin/, dll.)
+routes/web.php        definisi route
+Cara Menjalankan
+Pasang dependensi:
+bash
+composer install
+Salin file environment lalu buat app key:
+bash
+cp .env.example .env
+php artisan key:generate
+Jalankan Apache dan MySQL di XAMPP, lalu buat database company di phpMyAdmin.
+Atur koneksi database di .env:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=company
+DB_USERNAME=root
+DB_PASSWORD=
+SESSION_DRIVER=file
+CACHE_STORE=file
+Buat tabel employes dan admins (lewat SQL di phpMyAdmin atau migration).
+Jalankan server:
+bash
+php artisan serve
+Buka http://127.0.0.1:8000/employe atau http://127.0.0.1:8000/admin.
+Catatan
+File .env tidak ikut di-upload karena berisi konfigurasi lokal.
+Latihan migrate:fresh dilakukan pada database terpisah agar data CRUD tidak terhapus.
+Project template SB Admin 2 dikerjakan terpisah di repository laravel-admin.
